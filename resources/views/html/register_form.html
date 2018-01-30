@@ -1,0 +1,449 @@
+<html>
+	<head>
+		<title> Registeration Form </title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+			.set-appointment {
+				    position: fixed;
+				    right: 0;
+				    margin: 35px;
+				    bottom: 0;
+			}
+			hr {
+				border-top: 2px solid #95b8dc;
+			}
+			table {
+				background-color: #fff;
+			}
+
+			.thead-inverse th {
+				text-align: center;
+			    color: #fff;
+			    background-color: #292b2c;
+			}
+			.thead-inverse td {
+			    color: #1f1d1d;
+			    background-color: #798286;
+			}
+
+			.icon-success {
+			    color: #5CB85C;
+			}
+
+			.icon-remove {
+			    color: #b85c5c;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+			<!-- Form Name -->
+			<h2>Patient Registration</h2>
+				<div class="row" style="border:1px;">
+					<!-- start tabs -->
+					<div class="panel panel-default" style="padding: 10px;">
+					    <div id="Tabs" class=".testTabs" role="tabpanel">
+					        <!-- Nav tabs -->
+					        <ul class="nav nav-tabs" role="tablist">
+					            <li class="active"><a href="#basic" aria-controls="personal" role="tab" data-toggle="tab">
+					                Basic Information</a></li>
+					            <li><a href="#health" aria-controls="#sejarah" role="tab" data-toggle="tab">History Health</a></li>
+					        </ul>
+					        <!-- Tab panes -->
+					        <div class="tab-content" style="padding-top: 20px">
+					            <div role="tabpanel" class="tab-pane fade in active" id="basic">
+									<form class="well form-horizontal" action=" " met hod="post"  id="contact_form">
+									<fieldset>
+										<h3>Basic Information</h3>
+										<!-- Success message 
+										<div class="alert alert-success" role="alert" id="success_message">Successful <i class="glyphicon glyphicon-thumbs-up"></i></div>-->
+										<!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Name</label>  
+										  <div class="col-md-6 inputGroupContainer">
+										  <div class="input-group">
+										  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										  <input  name="nama" placeholder="Nama" class="form-control"  type="text">
+										    </div>
+										  </div>
+										</div>
+										<!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label" >Gender</label> 
+										    <div class="col-md-4 inputGroupContainer">
+					                            <div class="radio">
+					                                <label>
+					                                    <input type="radio" name="jantina" value="yes" /> Male
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                                <label>
+					                                    <input type="radio" name="jantina" value="no" /> Female
+					                                </label>
+					                            </div>
+					                        </div>
+										</div>
+										<!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Date Of Birth</label>  
+										    <div class="col-md-6 inputGroupContainer">
+										    <div class="input-group">
+										        <span class="input-group-addon"><i class="glyphicon glyphicon-birthday-cake"></i></span>
+										 		<input name="email" placeholder="tarikh Lahir" class="form-control"  type="date">
+										    </div>
+										  </div>
+										</div>
+										<!-- Text input--> 
+										<div class="form-group">
+										  <label class="col-md-4 control-label">No .KP</label>  
+										    <div class="col-md-6 inputGroupContainer">
+											    <div class="input-group">
+											        <span class="input-group-addon"><i class="glyphicon glyphicon-id-card"></i></span>
+												  	<input type="text"  class="form-control" name="mycard" id="id_mycard" required pattern="[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[01])(0[1-9]|1[0-6])[0-9]{4}">
+											  	</div>
+											</div>
+										</div>
+										<!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Address</label>  
+										    <div class="col-md-6 inputGroupContainer">
+										    <div class="input-group">
+										        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+										  		<input name="address" placeholder="Address" class="form-control" type="text">
+										    </div>
+										  </div>
+										</div>
+										<!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label">City</label>  
+										    <div class="col-md-6 inputGroupContainer">
+										    <div class="input-group">
+										        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+										 		 <input name="bandar" placeholder="bandar" class="form-control"  type="text">
+										    </div>
+										  </div>
+										</div>
+										<!-- Select Basic -->
+										<div class="form-group"> 
+										  <label class="col-md-4 control-label">State</label>
+										    <div class="col-md-6 selectContainer">
+												    <div class="input-group">
+												    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+												    <select name="negeri" class="form-control selectpicker" >
+												      <option value=" " >Please choose state</option>
+												      <option>Perlis</option>
+												      <option>Kedah</option>
+												      <option>Perak</option>
+												      <option>Pulau Pinang</option>
+												      <option>Selangor</option>
+												      <option>Melaka</option>
+												      <option>Negeri Sembilan</option>
+												      <option>Johor</option>
+												      <option>Pahang</option>
+												      <option>Terengganu</option>
+												      <option>Kelantan</option>
+												    </select>
+												  </div>
+											</div>
+										</div>
+										<!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Poscode</label>  
+										    <div class="col-md-4 inputGroupContainer">
+											    <div class="input-group">
+											        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+											  		<input name="zip" placeholder="Poskod" class="form-control"  type="text">
+											    </div>
+											</div>
+										</div>
+										<!-- Select Basic -->
+										<div class="form-group"> 
+										  <label class="col-md-4 control-label">Race</label>
+										    <div class="col-md-6">
+										    	<div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="bangsa"/>Malay
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="bangsa"/>Chinese
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="bangsa"/>Indian
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="bangsa"/>Bumiputra Sabah
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="bangsa"/>Bumiputra Sarawak
+					                                </label>
+					                            </div> 
+											</div>
+										</div>
+										<!-- Select Basic -->
+										<div class="form-group"> 
+										  <label class="col-md-4 control-label">Religion</label>
+										    <div class="col-md-6">
+											    <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="agame"/>Islam
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="agame"/>Buddha
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="agame"/>Hindu
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="agame"/>Kristian
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="agame"/>Lain-lain 
+					                                	<input class="form-control" type="text">
+					                                </label>
+					                            </div>
+											</div>
+										</div>
+										<!-- Select Basic -->
+										<div class="form-group"> 
+										  <label class="col-md-4 control-label">Education Level</label>
+										    <div class="col-md-6">
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="pendidikan"/>Primary School
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="pendidikan"/>Secondary School
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="pendidikan"/>University
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="pendidikan"/>None
+					                                </label>
+					                            </div>
+											</div>
+										</div>
+					                    <!-- Select Basic -->
+										<div class="form-group"> 
+										  <label class="col-md-4 control-label">Status</label>
+										    <div class="col-md-6">
+											    <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="status"/>Single
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="status"/>Married
+					                                </label>
+					                            </div>
+					                            <div class="radio">
+					                            	<label>
+					                                	<input type="radio" value="status"/>Divorce
+					                                </label>
+					                            </div>
+											</div>
+										</div>
+										<!-- Text input--> 
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Tel</label>  
+										    <div class="col-md-6 inputGroupContainer">
+											    <div class="input-group">
+											        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+												  	<input type="text"  class="form-control" name="telefon" required pattern="">
+											  	</div>
+											</div>
+										</div>
+										<!-- Text input--> 
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Email</label>  
+										    <div class="col-md-6 inputGroupContainer">
+											    <div class="input-group">
+											        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+												  	<input type="email"  class="form-control" name="email" required pattern="">
+											  	</div>
+											</div>
+										</div>
+
+										<h5>Data Antropometri</h5>
+											<table class="table table-hover table-bordered text-center">
+											  <thead class="thead-inverse">
+												<tr>
+													<th rowspan="2" style="vertical-align: middle;">Tarikh</th>
+													<th colspan="6">Maklumat</th>
+												</tr>
+												<tr>
+													<td>Berat badan (kg)</td>
+													<td>Tinggi (cm)</td>
+													<td>BMI (kg/m2)</td>
+													<td>Ukur Lilit Pinggang (cm)</td>
+													<td>% Lemak Tubuh</td>
+													<td>Berat Lemak Badan</td>
+												</tr>
+											  </thead>
+											  <tbody>
+												<tr>
+													<th scope="row"><input type="date" class="form-control" name="tarikh" style="width: 149px;padding-right: 0px;"></th>
+													<td><input type="number" class="form-control" name="beratbadan"></td>
+													<td><input type="number" class="form-control" name="tinggi"></td>
+													<td><input type="number" class="form-control" name="bmi"></td>
+													<td><input type="number" class="form-control" name="pinggang"></td>
+													<td><input type="number" class="form-control" name="lemaktubuh"></td>
+													<td><input type="number" class="form-control" name="beratlemak"></td>
+												</tr>
+											  </tbody>
+											</table>
+										<!-- Button -->
+										<div class="form-group">
+										  	<label class="pull-right">
+										    	<button type="submit" class="btn btn-warning" >Save</button>
+										  	</label>
+										</div>
+									</fieldset>
+								</form>
+								</div>
+				            <div role="tabpanel" class="tab-pane" id="health">
+				               <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+									<fieldset>
+										<h3>Health Information</h3>
+										<br/>
+										<h4>Sejarah Perubatan</h4>
+										<div class="col-md-6">
+											<table class="table table-hover table-bordered">
+											  <thead class="thead-inverse">
+												<tr>
+													<th colspan="3">Masalah Kesihatan</th>
+												</tr>
+												<tr>
+													<td>#</td>
+													<td>Jenis Penyakit</td>
+													<td>Tempoh</td>
+												</tr>
+											  </thead>
+											  <tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td><input class="form-control" name="jenis" placeholder="Jenis Penyakit"></td>
+													<td><input class="form-control" name="tempoh" placeholder="Tempoh Penyakit"></td>
+												</tr>
+												<tr>
+													<td colspan="3" style="text-align:center">
+														<a type="submit" class="btn btn-danger">Add <span class="glyphicon glyphicon-plus"></span>   </a>
+													</td>
+												</tr>
+											  </tbody>
+											</table>
+										</div>
+										<div class="col-md-6">
+											<table class="table table-hover table-bordered">
+											  <thead class="thead-inverse">
+												<tr>
+													<th colspan="2">Ubat</th>
+												</tr>
+												<tr>
+													<td>#</td>
+													<td>Jenis Ubat</td>
+												</tr>
+											  </thead>
+											  <tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td><input class="form-control" name="jenis" placeholder="Jenis Ubat"></td>
+												</tr>
+												<tr>
+													<td colspan="3" style="text-align:center">
+														<a type="submit" class="btn btn-danger">Add <span class="glyphicon glyphicon-plus"></span>   </a>
+													</td>
+												</tr>
+											  </tbody>
+											</table>
+										</div>
+										<table class="table table-hover table-bordered text-center">
+										  <thead class="thead-inverse">
+											<tr>
+												<th colspan="4">Sejarah Perubatan Keluarga</th>
+											</tr>
+											<tr>
+												<td>Hipertensi</td>
+												<td>Penyakit Kardiovaskular</td>
+												<td>Diabetes</td>
+												<td>Asma</td>
+											</tr>
+										  </thead>
+										  <tbody>
+											<tr>
+												<td>
+													<select class="form-control">
+														<option selected>Ya</option>
+														<option>Tidak</option>
+													</select>
+												</td>
+												<td>
+													<select class="form-control">
+														<option>Ya</option>
+														<option selected>Tidak</option>
+													</select>
+												</td>
+												<td>
+													<select class="form-control">
+														<option>Ya</option>
+														<option selected>Tidak</option>
+													</select>
+												</td>
+												<td>
+													<select class="form-control">
+														<option>Ya</option>
+														<option>Tidak</option>
+													</select>
+												</td>
+											</tr>
+										  </tbody>
+										</table>
+										<!-- Button -->
+										<div class="form-group">
+										  <label class="pull-right">
+											<button type="submit" class="btn btn-warning" >Save</button>
+										  </label>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+				          </div>
+				          <!--tutup panel -->
+				        </div>
+				    </div>
+				</div>
+				<!-- tutup tabs -->
+			</div>
+			</div>
+		</div><!-- /.container -->
+	</body>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

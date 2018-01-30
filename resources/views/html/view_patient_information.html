@@ -1,0 +1,546 @@
+<html>
+	<head>
+		<title>View Patient Information</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+			.set-appointment {
+				    position: fixed;
+				    right: 0;
+				    margin: 35px;
+				    bottom: 0;
+			}
+			hr {
+				border-top: 2px solid #95b8dc;
+			}
+			table {
+				background-color: #fff;
+			}
+
+			.thead-inverse th {
+				text-align: center;
+			    color: #fff;
+			    background-color: #292b2c;
+			}
+			.thead-inverse td {
+			    color: #1f1d1d;
+			    background-color: #798286;
+			}
+
+			.icon-success {
+			    color: #5CB85C;
+			}
+
+			.icon-remove {
+			    color: #b85c5c;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+
+			<div class="set-appointment">
+				<button type="submit" class="btn btn-info" data-toggle="modal" data-target="#myModal">Set Appointment</button>
+			</div>
+
+			<!-- Form Name -->
+			<h2>View Patient Information</h2>
+				<div class="row" style="border:1px;">
+					<!-- start tabs -->
+					<div class="panel panel-default" style="padding: 10px;">
+					<h3>Patient Information</h3>
+						<div class="well">
+							<form class="form-horizontal" action=" " method="post"  id="contact_form">
+							<h3>Basic Information</h3>
+								<fieldset>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Name: </label>  
+										<div class="col-md-6 inputGroupContainer">
+										  	<div class="form-control">
+											  <label>
+											  	Nur Yusna Marlina binti Mohd Yusoff
+											  </label>
+										    </div>
+										 </div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Gender: </label>  
+										<div class="col-md-6 inputGroupContainer">
+										  	<div class="form-control">
+											  <label>
+											  	Perempuan
+											  </label>
+										    </div>
+										 </div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Date Of Birth: </label>  
+										<div class="col-md-6 inputGroupContainer">
+										  	<div class="form-control">
+											  <label>
+											  	20/11/1994
+											  </label>
+										    </div>
+										 </div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">No KP: </label>  
+										<div class="col-md-6 inputGroupContainer">
+										  	<div class="form-control">
+											  <label>
+											  	941120-XX-XXXX
+											  </label>
+										    </div>
+										 </div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Address: </label>  
+										<div class="col-md-6 inputGroupContainer">
+										  	<div class="form-control" style="row:2px;">
+											  <label>
+											  	Tmn Prima Saujana, 43000 Kajang Selangor
+											  </label>
+										    </div>
+										 </div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Appointment Detail: </label>  
+										<div class="col-md-6 inputGroupContainer">
+										  	<div class="form-control">
+											  <label>
+											  	XX/XX/XXXX 00:00:00
+											  </label>
+										    </div>
+										 </div>
+									</div>
+									<!-- Button -->
+									<div class="form-group">
+									  <label class="col-md-4 control-label"></label>
+									  <div class="col-md-6">
+									    <button type="submit" class="btn btn-warning pull-right" disabled>   Edit <span class="glyphicon glyphicon-pencil"></span>   </button> 
+									    <button type="submit" class="btn btn-success pull-right" style="margin-right: 10px;">   Update <span class="glyphicon glyphicon-pencil"></span>   </button>
+									  </div>
+									</div>
+								</fieldset>
+							</form>
+
+							<br/>
+							<hr>
+							<br/>
+							<form action="" method="post">
+								<h3>Health Information</h3>
+								<br/>
+								<h4>Sejarah Perubatan</h4>
+								<div class="col-md-6">
+									<table class="table table-hover table-bordered">
+									  <thead class="thead-inverse">
+										<tr>
+											<th colspan="3">Masalah Kesihatan</th>
+										</tr>
+										<tr>
+											<td>#</td>
+											<td>Jenis Penyakit</td>
+											<td>Tempoh</td>
+										</tr>
+									  </thead>
+									  <tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>XXXXXX</td>
+											<td>X Tahun</td>
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td>XXXXXX</td>
+											<td>XX Bulan</td>
+										</tr>
+										<tr>
+											<th scope="row">3</th>
+											<td><input class="form-control" name="jenis" placeholder="Jenis Penyakit"></td>
+											<td><input class="form-control" name="tempoh" placeholder="Tempoh Penyakit"></td>
+										</tr>
+										<tr>
+											<td colspan="3" style="text-align:center">
+												<a type="submit" class="btn btn-danger">Add <span class="glyphicon glyphicon-plus"></span>   </a>
+											</td>
+										</tr>
+									  </tbody>
+									</table>
+								</div>
+								<div class="col-md-6">
+									<table class="table table-hover table-bordered">
+									  <thead class="thead-inverse">
+										<tr>
+											<th colspan="2">Ubat</th>
+										</tr>
+										<tr>
+											<td>#</td>
+											<td>Jenis Ubat</td>
+										</tr>
+									  </thead>
+									  <tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>XXXXX</td>
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td>XXXXX</td>
+										</tr>
+										<tr>
+											<th scope="row">3</th>
+											<td><input class="form-control" name="jenis" placeholder="Jenis Ubat"></td>
+										</tr>
+										<tr>
+											<td colspan="3" style="text-align:center">
+												<a type="submit" class="btn btn-danger">Add <span class="glyphicon glyphicon-plus"></span>   </a>
+											</td>
+										</tr>
+									  </tbody>
+									</table>
+								</div>
+								<table class="table table-hover table-bordered text-center">
+								  <thead class="thead-inverse">
+									<tr>
+										<th colspan="4">Sejarah Perubatan Keluarga</th>
+									</tr>
+									<tr>
+										<td>Hipertensi</td>
+										<td>Penyakit Kardiovaskular</td>
+										<td>Diabetes</td>
+										<td>Asma</td>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr>
+										<td>
+											<select class="form-control">
+												<option selected>Ya</option>
+												<option>Tidak</option>
+											</select>
+										</td>
+										<td>
+											<select class="form-control">
+												<option>Ya</option>
+												<option selected>Tidak</option>
+											</select>
+										</td>
+										<td>
+											<select class="form-control">
+												<option>Ya</option>
+												<option selected>Tidak</option>
+											</select>
+										</td>
+										<td>
+											<select class="form-control">
+												<option>Ya</option>
+												<option>Tidak</option>
+											</select>
+										</td>
+									</tr>
+								  </tbody>
+								</table>
+
+								<br/>
+
+								<h4>Data Antropometri</h4>
+								<table class="table table-hover table-bordered text-center">
+								  <thead class="thead-inverse">
+									<tr>
+										<th rowspan="2" style="vertical-align: middle;">Tarikh</th>
+										<th colspan="6">Maklumat</th>
+									</tr>
+									<tr>
+										<td>Berat badan (kg)</td>
+										<td>Tinggi (cm)</td>
+										<td>BMI (kg/m2)</td>
+										<td>Ukur Lilit Pinggang (cm)</td>
+										<td>% Lemak Tubuh</td>
+										<td>Berat Lemak Badan</td>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr>
+										<th scope="row">26/5/2017</th>
+										<td>XX</td>
+										<td>XXX</td>
+										<td>XXX</td>
+										<td>XXX</td>
+										<td>XX</td>
+										<td>XX</td>
+									</tr>
+									<tr>
+										<th scope="row">2/6/2017</th>
+										<td>XX</td>
+										<td>XXX</td>
+										<td>XXX</td>
+										<td>XXX</td>
+										<td>XX</td>
+										<td>XX</td>
+									</tr>
+									<tr>
+										<th scope="row">11/6/2017</th>
+										<td>XX</td>
+										<td>XXX</td>
+										<td>XXX</td>
+										<td>XXX</td>
+										<td>XX</td>
+										<td>XX</td>
+									</tr>
+									<tr>
+										<th scope="row"><input type="date" class="form-control" name="tarikh" style="width: 149px;padding-right: 0px;"></th>
+										<td><input type="number" class="form-control" name="beratbadan"></td>
+										<td><input type="number" class="form-control" name="tinggi"></td>
+										<td><input type="number" class="form-control" name="bmi"></td>
+										<td><input type="number" class="form-control" name="pinggang"></td>
+										<td><input type="number" class="form-control" name="lemaktubuh"></td>
+										<td><input type="number" class="form-control" name="beratlemak"></td>
+									</tr>
+									<tr>
+										<td colspan="7" style="text-align:center">
+											<a type="submit" class="btn btn-danger">Add <span class="glyphicon glyphicon-plus"></span>   </a>
+										</td>
+									</tr>
+								  </tbody>
+								</table>
+								<br/>
+								<button type="submit" class="btn btn-warning pull-right" disabled>   Edit <span class="glyphicon glyphicon-pencil"></span>   </button> 
+									    <button type="submit" class="btn btn-success pull-right" style="margin-right: 10px;">   Update <span class="glyphicon glyphicon-pencil"></span>   </button>
+								<br/>
+							</form>
+						</div>
+					</div>
+
+					<div class="panel panel-default" style="padding: 10px 10px 40px;">
+					<h3>Treatment Record</h3>
+						<form class="well form-horizontal" action=" " method="post"  id="contact_form">
+							<fieldset>
+								<div class="panel-body">
+						            <div class="table-responsive">
+						            <table class="table">
+						              <thead>
+						                <tr>
+						                  <th>Date</th>
+						                  <th style="width:80%;">Remarks</th>
+						                </tr>
+						              </thead>
+						              <tbody>
+						                <tr class="success">
+						                  <td>30/5/2017</td>
+						                  <td>Perlu menjalani rawatan susulan pada tiga minggu akan datang</td>
+						                </tr>
+						                <tr class="success">
+						                  <td>5/5/2017</td>
+						                  <td>sasaran turun berat badan : -3kg</td>
+						                </tr>
+						                <tr class="success">
+						                  <td>15/2/2017</td>
+						                  <td>BMI semasa : 23.1 
+						                  perlu menjalani aktiviti fizikal berkala selama 2 bulan</td>
+						                </tr>
+						                <tr class="success">
+						                  <td>14/12/2016</td>
+						                  <td>BMI semasa : 23.5
+						                  perlu menjalani aktiviti fizikal berkala selama 2 bulan dan kawalan pemakanan bergula</td>
+						                </tr>
+						                <tr class="success">
+						                  <td>15/9/2016</td>
+						                  <td>BMI semasa : 24.0<br>
+						                  telah menjalani ujian saringan : lulus </td>
+						                </tr>
+						              </tbody>
+						            </table>
+						            </div>
+						            <!--pagination-->
+						            <div class="text-center">
+						            <ul class="pagination">
+									  <li class="disabled"><a href="#">1</a></li>
+									  <li><a href="#">2</a></li>
+									  <li><a href="#">3</a></li>
+									  <li><a href="#">4</a></li>
+									  <li><a href="#">5</a></li>
+									</ul>
+									</div>
+							</fieldset>
+						</form>
+						<div class="pull-right">
+							<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Add Record</button>
+						</div>
+						<!-- Modal -->
+						  <div class="modal fade" id="myModal" role="dialog">
+						    <div class="modal-dialog modal-lg">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title">Add Treatment Record</h4>
+						        </div>
+						        <div class="modal-body">
+							        <form class="form-horizontal" role="form">
+							          <!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Date:</label>  
+										    <div class="col-md-6">
+										 		<input name="date" class="form-control"  type="date">
+										  	</div>
+										</div>
+							        	<!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Remarks</label>  
+										    <div class="col-md-6">
+										 		<textarea name="text" class="form-control"></textarea>
+										  	</div>
+										</div>
+									</form>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						  <!-- close modal -->
+					</div>
+					<div class="panel panel-default" style="padding: 10px 10px 40px;">
+					<h3>InBody Result</h3>
+						<form class="well form-horizontal" action=" " method="post"  id="contact_form">
+							<fieldset>
+								<div class="panel-body">
+						            <div class="table-responsive">
+						            <table class="table">
+						              <thead>
+						                <tr>
+						                  <th>Date</th>
+						                  <th>Time</th>
+						                  <th>Fitness Score</th>
+						                  <th></th>
+						                </tr>
+						              </thead>
+						              <tbody>
+						                <tr class="success">
+						                  <td>5/5/2017</td>
+						                  <td>09:45:23</td>
+						                  <td>70-79: Good</td>
+						                  <td><a href="view_inbody.html" class="btn btn-warning btn-xs">Details</a></td>
+						                </tr>
+						                <tr class="success">
+						                  <td>15/2/2017</td>
+						                  <td>10:14:00</td>
+						                  <td>60-69: Average</td>
+						                  <td><a href="view_inbody.html" class="btn btn-warning btn-xs">Details</a></td>
+						                </tr>
+						                <tr class="success">
+						                  <td>14/12/2016</td>
+						                  <td>15:22:00</td>
+						                  <td>50-59: Weak</td>
+						                  <td><a href="view_inbody.html" class="btn btn-warning btn-xs">Details</a></td>
+						                </tr>
+						                <tr class="success">
+						                  <td>15/9/2016</td>
+						                  <td>08:20:00</td>
+						                  <td>Below 50: Very Weak</td>
+						                  <td><a href="view_inbody.html" class="btn btn-warning btn-xs">Details</a></td>
+						                </tr>
+						              </tbody>
+						            </table>
+						            </div>
+						            <div class="text-center">
+						            <ul class="pagination">
+									  <li class="disabled"><a href="#">1</a></li>
+									  <li><a href="#">2</a></li>
+									  <li><a href="#">3</a></li>
+									  <li><a href="#">4</a></li>
+									  <li><a href="#">5</a></li>
+									</ul>
+									</div>
+						
+							</fieldset>
+						</form>
+						<div class="pull-right">
+							<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#inbody">Add Record</button>
+						</div>
+						<!-- Modal -->
+						  <div class="modal fade" id="inbody" role="dialog">
+						    <div class="modal-dialog modal-lg">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title">Add InBody Result</h4>
+						        </div>
+						        <div class="modal-body">
+							        <form class="form-horizontal" role="form">
+							          <!-- Text input-->
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Date:</label>  
+										    <div class="col-md-6">
+										 		<input name="date" class="form-control"  type="date">
+										  	</div>
+										</div>
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Time:</label>  
+										    <div class="col-md-6">
+										 		<input name="time" class="form-control"  type="time">
+										  	</div>
+										</div>
+										<h3 style="margin-left: 67px;">Body Composition</h3>
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Weight:</label>  
+										    <div class="col-md-6">
+										 		<input name="weight" class="form-control"  type="number">
+										  	</div>
+										</div>
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Muscle Mass:</label>  
+										    <div class="col-md-6">
+										 		<input name="mm" class="form-control"  type="number">
+										  	</div>
+										</div>
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Body Fat Mass:</label>  
+										    <div class="col-md-6">
+										 		<input name="bfm" class="form-control"  type="number">
+										  	</div>
+										</div>
+										<div class="form-group">
+										  <label class="col-md-4 control-label">TBW:</label>  
+										    <div class="col-md-6">
+										 		<input name="tbw" class="form-control"  type="number">
+										  	</div>
+										</div>
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Protein:</label>  
+										    <div class="col-md-6">
+										 		<input name="protein" class="form-control"  type="number">
+										  	</div>
+										</div>
+										<div class="form-group">
+										  <label class="col-md-4 control-label">FFM:</label>  
+										    <div class="col-md-6">
+										 		<input name="ffm" class="form-control"  type="number">
+										  	</div>
+										</div>
+										<div class="form-group">
+										  <label class="col-md-4 control-label">Mineral:</label>  
+										    <div class="col-md-6">
+										 		<input name="mineral" class="form-control"  type="number">
+										  	</div>
+										</div>
+									</form>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.container -->
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>
