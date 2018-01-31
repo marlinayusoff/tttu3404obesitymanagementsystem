@@ -8,7 +8,7 @@ class Patient extends Model
 {
     //
     protected $table = 'tbl_patient';
-    protected $fillable = ['patientId','username','password','name','icNo','dateOfBirth','gender','religion','currentInfo','race','address','status','telNo','education','email','hipertensi','kardiovaskular','diabetes','asma'];
+    protected $fillable = ['patientId','username','password','name','icNo','dateOfBirth','gender','religion','currentInfo','race','address','status','telNo','education','email','created_at','updated_at'];
     protected $primaryKey = 'patientId';
 
     public function Appointment(){

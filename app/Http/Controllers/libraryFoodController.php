@@ -23,7 +23,7 @@ public function viewFoodLibrary()
 
   public function addFood() {
     $foodName = Input::get('foodName');
-    $foodCalories = Input::get('foodCalories');
+    $calories = Input::get('calories');
 
     $count = 0;
     foreach($foodName as $FN) {
@@ -32,7 +32,7 @@ public function viewFoodLibrary()
 
     for($i = 0; $i < $count;$i++) {
 
-      $food = array('foodCalories'=>$foodCalories[$i],'foodName'=>$foodName[$i]);
+      $food = array('calories'=>$calories[$i],'foodName'=>$foodName[$i]);
       DB::table('tbl_food')->insert($food);
     }
 

@@ -21,11 +21,11 @@ class adminController extends Controller
 
     $name = $req->input('name');
     $email = $req->input('email');
-    $gender = $req->input('jantina');
+    $gender = $req->input('gender');
     $address = $req->input('address');
-    $password = $req->input('password');
-    $icNo = $req->input('mycard');
-    $telNo = $req->input('telefon');
+    $password = md5($req->input('password'));
+    $icNo = $req->input('noIc');
+    $telNo = $req->input('noTel');
     $username = $req->input('username');
 
 
@@ -37,9 +37,19 @@ class adminController extends Controller
     echo 'alert("BERJAYA!")';
     echo '</script>';
 
-    return view('admin/add_nso');
+    return Redirect::to('admin/nso_list/');
   }
 
+  /*public  function create(){
+
+    return view('admin/add_nso');
+
+  }
+
+  public function store(Request $req){
+
+
+  }*/
 
   public function nsoList(){
 
@@ -47,7 +57,7 @@ class adminController extends Controller
 
     $data = NSO::paginate(10);
     return view('admin/nso_list')->withData($data);
-  } 
+  }
 
   public function searchNSO(Request $req){
 
@@ -62,28 +72,13 @@ class adminController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function edit($id)
+ public function edit($id)
   {
 
     $item = NSO::findOrfail($id);
     return view('admin.edit_nso',  compact('item'));
 
   }
-
-  protected function validator(array $item)
-    {
-        return Validator::make($item, [
-          'name' => 'required|string|max:100',
-          'username' => 'required|string|max:20|unique:users',
-          'gender' => 'required|string|max:10',
-          'address' => 'required|string|max:100',
-          'telNo' => 'required|integer|min:10',
-          'icNo' => 'required|integer|max:12',
-          'password' => 'required|string|max:20',
-          'email'  => 'required|string|min:10'
-        ]);
-    }
-
 
   public function update()
   {
@@ -104,7 +99,6 @@ class adminController extends Controller
     return Redirect::to('admin/nso_list/');
    
   }
-
 //okay!!
 //1/11/2017 (yusna)
   public function destroy($id)

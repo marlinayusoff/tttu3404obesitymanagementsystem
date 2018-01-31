@@ -8,6 +8,6 @@ class Drink extends Model
 {
     //
     protected $table = 'tbl_drink';
-    protected $fillable = ['drinkId','drinkName','drinkCalories'];
+    protected $fillable = ['drinkId','drinkName','calories'];
     protected $primaryKey = 'drinkId';
 }

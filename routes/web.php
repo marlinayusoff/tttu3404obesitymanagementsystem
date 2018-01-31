@@ -14,6 +14,7 @@
 //Login Session
 Route::get('/', 'pagesController@getIndex');
 Route::get('/nsoHome', 'nsoHomeController@Home');
+Route::get('/patientHome', 'patientHomeController@Home');
 Route::post('/', 'pagesController@loginprocess');
 Route::get('/logout', 'pagesController@logoutprocess');
 
@@ -53,6 +54,7 @@ Route::post('/admin/activity', 'libraryActivityController@storeActivityLibrary')
 Route::get('/admin/activity/add', 'libraryActivityController@addActivity');
 Route::delete('admin/activity/{activityId}','libraryActivityController@destroy')->name('delete');
 
+
 /*
 *
 NSO VIEW
@@ -83,7 +85,7 @@ Route::get('/info/{patientId}', 'patientController@show');
 Route::get('/schedule/{patientId}', 'patientController@showSchedule');
 Route::get('/scheduleP', 'patientController@schedule');
 Route::post('/info', 'patientController@processForm');
-Route::post('/addAntro', 'patientController@addAntro');
+Route::post('/addAntro', 'patientController@addAntros');
 Route::get('/Kesihatan', 'patientController@addkesihatan');
 Route::get('/ubat', 'patientController@addubat');
 Route::get('/updatespk', 'patientController@updatespk');
@@ -94,26 +96,47 @@ Route::post('/delete', 'patientController@processDelete');
 Route::get('/patientList', 'patientController@patientList');
 Route::get('/searchPatient', 'patientController@searchPatient');
 
-//view visualize patient
+
+// Patient Daily Diet
+Route::get('/dailyDiet/{patientId}', 'patientController@getpatientDetails');
+Route::get('/getDailyDietDetails', 'dailydietViewController@process');
+Route::get('/addTreatment/{patientId}', 'patientController@addTreatment');
+
+//view visualize patient - yusna
 Route::get('/nso/patientSummary', 'patientSummaryController@show');
 Route::get('google-piechart',array('as'=>'/nso/patientSummary','uses'=>'patientSummaryController@pieChart'));
 
-//view patient daily diet
-Route::get('/getDailyDietDetails', 'dailydietViewController@process');
-
-
-//Print pdf  
+//Print pdf - yusna 
 Route::get('/pdfPatientInformation/{patientId}', 'PDFController@pdfPatientInformation');
 Route::post('/pdfPatientInformation', 'PDFController@processPdfPatientInformation');
 Route::get('pdfPatientInformation/{patientId}',array('as'=>'pdfPatientInformation','uses'=>'PDFController@pdfPatientInformation'));
-/*
-*
-PATIENT VIEW - 30/11/2017
-*
-*/
-
-Route::get('/patient/info/{patientId}', 'userController@show');
-Route::post('/patient/info', 'userController@processForm');
 
 //Patient Inbody
+Route::post('/inbody', 'patientInfoController@inbodyPro');
+Route::get('/inbody/{id}/{date}', 'patientInfoController@inbodyResult');
 
+/*
+*
+PATIENT VIEW
+*
+*/
+Route::get('/patient/info', 'userController@show');
+Route::get('/patient/info/update', 'userController@updatePatient');
+
+Route::get('/calenderPatient', 'patientHomeController@calender');
+Route::get('/schedule_Details', 'userController@showScheduleUser');
+Route::get('/scheduleU', 'userController@schedule');
+
+//User Inbody
+Route::get('patient/inbody/{id}/{date}', 'patientInfoController@inbodyResultPatient');
+
+
+//Daily Diet
+Route::get('/nso/adddailydiet','patientController@getDiet');
+Route::get('/nso/addDaily','patientController@addDiet');
+Route::post('/nso/insert_patient','nsoController@insertPatientBasic');
+Route::post('/nso/insert_patientMed','nsoController@insertPatientMed');
+
+
+Route::get('/DailyDiet_Details', 'patientController@getdailyDiet');
+Route::get('/getDailyDietDetails', 'dailydietViewController@process');

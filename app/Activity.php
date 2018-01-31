@@ -8,6 +8,6 @@ class Activity extends Model
 {
     //
     protected $table = 'tbl_activity';
-    protected $fillable = ['activityId','activityName','activityCalories'];
+    protected $fillable = ['activityId','activityName','calories'];
     protected $primaryKey = 'activityId';
 }

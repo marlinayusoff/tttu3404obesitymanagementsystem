@@ -8,6 +8,6 @@ class Food extends Model
 {
     //
     protected $table = 'tbl_food';
-    protected $fillable = ['foodId','foodName','foodCalories'];
+    protected $fillable = ['foodId','foodName','calories'];
     protected $primaryKey = 'foodId';
 }

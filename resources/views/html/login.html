@@ -1,91 +1,91 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Login</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    
-
-<div class="container-fluid">
-
-<div class="row">
-    <div class="col-xs-12s col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-
-    
-   
-    <div class="page-header">
-                <h1>Login</h1>
-    </div>
-
-    
-                <form action="login_crud.php" method="post" class="form-signin">
-                <!--<form action="customer_crud.php" method="post" class="form-horizontal">-->
-                <div class="form-group">
-                    <label for="inputemail" class="sr-only">userId</label>
-                    <input type="text" id="inputemail" name="userid" class="form-control" placeholder="User ID" equired autofocus>
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-                </div>
-                <div class="checkbox">
-                    <label>
-                    <input type="checkbox" name="remember"
-                    <?php  if(isset($_COOKIE['remember_me']) && isset($_COOKIE['remember'])) {
-                                echo 'checked="checked"';
-                            }
-                            else {
-                                echo '';
-                            }
-                    ?> Remember me
-                    </label>
-                </div>
-
-                
-               
-                <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Log in</button>
-                </div>
-                </form>
-      
-
-    </div> <!-- /container -->
-    <!-- /.container -->
-
-</div>
-</div>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    
+
+<div class="container-fluid">
+
+<div class="row">
+    <div class="col-xs-12s col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+
+    
+   
+    <div class="page-header">
+                <h1>Login</h1>
+    </div>
+
+    
+                <form action="login_crud.php" method="post" class="form-signin">
+                <!--<form action="customer_crud.php" method="post" class="form-horizontal">-->
+                <div class="form-group">
+                    <label for="inputemail" class="sr-only">userId</label>
+                    <input type="text" id="inputemail" name="userid" class="form-control" placeholder="User ID" equired autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" name="remember"
+                    <?php  if(isset($_COOKIE['remember_me']) && isset($_COOKIE['remember'])) {
+                                echo 'checked="checked"';
+                            }
+                            else {
+                                echo '';
+                            }
+                    ?> Remember me
+                    </label>
+                </div>
+
+                
+               
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Log in</button>
+                </div>
+                </form>
+      
+
+    </div> <!-- /container -->
+    <!-- /.container -->
+
+</div>
+</div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
 </html>
