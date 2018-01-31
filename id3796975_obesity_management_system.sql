@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.6
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 02, 2017 at 02:34 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.0.23
+-- Host: localhost:3306
+-- Generation Time: Dec 22, 2017 at 02:17 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `obesity_management_system`
+-- Database: `id3796975_obesity_management_system`
 --
+CREATE DATABASE IF NOT EXISTS `id3796975_obesity_management_system` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `id3796975_obesity_management_system`;
 
 -- --------------------------------------------------------
 
@@ -39,10 +41,10 @@ CREATE TABLE `tbl_activity` (
 --
 
 INSERT INTO `tbl_activity` (`activityId`, `activityName`, `calories`) VALUES
-(6001, 'jogging', '20kcal'),
-(6002, 'berenang', '25kcal'),
-(6003, 'Memanah', '10kcal'),
-(6004, 'Memancing', '6kcal');
+(6001, 'jogging', '20'),
+(6002, 'berenang', '25'),
+(6003, 'Memanah', '10'),
+(6004, 'Memancing', '6');
 
 -- --------------------------------------------------------
 
@@ -53,6 +55,7 @@ INSERT INTO `tbl_activity` (`activityId`, `activityName`, `calories`) VALUES
 CREATE TABLE `tbl_admin` (
   `adminId` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `gender` varchar(15) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -61,9 +64,8 @@ CREATE TABLE `tbl_admin` (
 -- Dumping data for table `tbl_admin`
 --
 
-INSERT INTO `tbl_admin` (`adminId`, `name`, `username`, `password`) VALUES
-(1, 'admin', 'admin1', '202cb962ac59075b964b07152d234b70'),
-(2, 'admin2', 'admin2', '12345');
+INSERT INTO `tbl_admin` (`adminId`, `name`, `gender`, `username`, `password`) VALUES
+(1, 'admin', 'Lelaki', 'admin1', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -73,13 +75,28 @@ INSERT INTO `tbl_admin` (`adminId`, `name`, `username`, `password`) VALUES
 
 CREATE TABLE `tbl_anthro_data` (
   `antroId` int(11) NOT NULL,
+  `patientId` int(11) NOT NULL,
   `date` date NOT NULL,
   `weight` float NOT NULL,
   `height` float NOT NULL,
   `BMI` float NOT NULL,
   `bodyFatMass` float NOT NULL,
-  `patientId` int(11) NOT NULL
+  `wrist` float NOT NULL,
+  `waist` float NOT NULL,
+  `hip` float NOT NULL,
+  `forearm` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_anthro_data`
+--
+
+INSERT INTO `tbl_anthro_data` (`antroId`, `patientId`, `date`, `weight`, `height`, `BMI`, `bodyFatMass`, `wrist`, `waist`, `hip`, `forearm`) VALUES
+(3, 1, '2017-11-30', 55, 155, 22.89, 20, 24, 24, 24, 4),
+(4, 1, '2017-11-30', 55, 155, 22.89, 20, 24, 24, 24, 4),
+(5, 1, '2017-12-21', 88, 170, 30.45, 28, 7, 30, 50, 10),
+(6, 40, '2017-12-21', 54, 145, 25.68, 12, 32, 22, 30, 21),
+(8, 43, '2017-12-22', 80, 155, 33.3, 24, 21, 40, 45, 15);
 
 -- --------------------------------------------------------
 
@@ -91,8 +108,8 @@ CREATE TABLE `tbl_appointment` (
   `appointmentId` int(11) NOT NULL,
   `patientId` int(11) NOT NULL,
   `nsoId` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `time` varchar(20) NOT NULL,
   `remarks` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -158,16 +175,23 @@ INSERT INTO `tbl_appointment` (`appointmentId`, `patientId`, `nsoId`, `date`, `t
 (100, 10, 14, '2017-11-08', '11:30:00', ''),
 (101, 33, 14, '2017-11-08', '10:30:00', ''),
 (102, 3, 14, '2017-11-17', '10:30:00', ''),
-(103, 4, 14, '2017-11-20', '15:30:00', ''),
 (104, 34, 14, '2017-11-21', '08:00:00', ''),
 (105, 34, 14, '2017-11-21', '09:00:00', ''),
 (106, 34, 14, '2017-11-21', '11:30:00', ''),
 (107, 34, 14, '2017-11-30', '11:50:00', ''),
 (108, 34, 14, '2017-11-24', '15:15:00', ''),
 (109, 1, 14, '2017-11-22', '08:00:00', ''),
-(110, 4, 14, '2017-11-22', '09:15:00', ''),
 (111, 1, 14, '2017-11-26', '11:15:00', ''),
-(112, 10, 14, '2017-11-26', '10:30:00', '');
+(112, 10, 14, '2017-11-26', '10:30:00', ''),
+(113, 34, 14, '2017-11-10', '10:15:00', ''),
+(114, 10, 14, '2017-11-07', '08:30:00', ''),
+(115, 1, 14, '2017-11-30', '09:15:00', ''),
+(116, 1, 14, '2017-12-04', '09:15:00', ''),
+(117, 3, 14, '2017-12-13', '03:15:00', ''),
+(118, 1, 14, '2017-12-27', '08:15:00', ''),
+(119, 10, 14, '2017-12-04', '09:15:00', ''),
+(120, 41, 14, '2017-12-22', '11:45:00', ''),
+(121, 43, 42, '2017-12-22', '11:45:00', '');
 
 -- --------------------------------------------------------
 
@@ -183,6 +207,20 @@ CREATE TABLE `tbl_daily_diet` (
   `activityId` int(11) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_daily_diet`
+--
+
+INSERT INTO `tbl_daily_diet` (`dailyDietId`, `patientId`, `drinkId`, `foodId`, `activityId`, `date`) VALUES
+(2, 1, 5001, 4001, 6001, '2017-11-01'),
+(3, 10, 5003, 4004, 6002, '2017-10-18'),
+(4, 1, 5001, 4001, 6001, '2017-11-02'),
+(6, 1, 5002, 4003, 6002, '2017-11-01'),
+(7, 1, 5003, 4002, 6002, '2017-12-21'),
+(8, 1, 5003, 4002, 6003, '2017-12-21'),
+(9, 43, 5001, 4001, 6003, '2017-12-21'),
+(10, 43, 5002, 4009, 6002, '2017-12-21');
 
 -- --------------------------------------------------------
 
@@ -201,10 +239,11 @@ CREATE TABLE `tbl_drink` (
 --
 
 INSERT INTO `tbl_drink` (`drinkId`, `drinkName`, `calories`) VALUES
-(5001, 'Jus buah-buahan', '2kcal'),
-(5002, 'Air Sirap', '5kcal'),
-(5003, 'Milo', '7kcal'),
-(5004, 'Teh', '6kcal');
+(5001, 'Jus buah-buahan', '2'),
+(5002, 'Air Sirap', '5'),
+(5003, 'Milo', '7'),
+(5004, 'Teh', '6'),
+(5005, 'Pepsi', '30');
 
 -- --------------------------------------------------------
 
@@ -223,10 +262,14 @@ CREATE TABLE `tbl_food` (
 --
 
 INSERT INTO `tbl_food` (`foodId`, `foodName`, `calories`) VALUES
-(4001, 'Ikan', '15kcal'),
-(4002, 'Ayam', '20kcal'),
-(4003, 'Daging', '20kcal'),
-(4004, 'Keropok', '25kcal');
+(4001, 'Ikan', '15'),
+(4002, 'Ayam', '20'),
+(4003, 'Daging', '20'),
+(4004, 'Keropok', '25'),
+(4005, 'Kambing', '2000'),
+(4007, 'Strawberry', '2'),
+(4008, 'curry', '300'),
+(4009, 'Donut', '120');
 
 -- --------------------------------------------------------
 
@@ -246,7 +289,77 @@ CREATE TABLE `tbl_health_issue` (
 --
 
 INSERT INTO `tbl_health_issue` (`healthIssueId`, `patientId`, `healthIssue`, `duration`) VALUES
-(1, 35, 'test', '2');
+(1, 1, 'Thyroid', '2 Tahun'),
+(2, 2, 'Heart Attack', 'wet'),
+(3, 2, 'Fatty Liver', '3 Years'),
+(4, 1, 'Heart Attack', '3 months'),
+(5, 1, 'Others', '1 Minggu'),
+(6, 1, 'Fatty Liver', '4 Tahun'),
+(7, 37, 'ser', 'sd'),
+(8, 38, 'dfsa', 'dsf'),
+(9, 39, 'sss', '123'),
+(10, 40, 'Diabetes', '3 bulan'),
+(11, 2, 'Osteoarthritis', '1 months'),
+(14, 43, 'Fatty Liver', '3 months'),
+(15, 43, 'High Blood Pressure', '1 year');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_ideal_weight`
+--
+
+CREATE TABLE `tbl_ideal_weight` (
+  `iw_id` int(11) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `height` int(11) NOT NULL,
+  `min` int(11) NOT NULL,
+  `max` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_ideal_weight`
+--
+
+INSERT INTO `tbl_ideal_weight` (`iw_id`, `gender`, `height`, `min`, `max`) VALUES
+(1, 'Lelaki', 135, 28, 35),
+(2, 'Lelaki', 137, 30, 39),
+(3, 'Lelaki', 140, 33, 40),
+(4, 'Lelaki', 142, 35, 44),
+(5, 'Lelaki', 145, 38, 46),
+(6, 'Lelaki', 147, 40, 50),
+(7, 'Lelaki', 150, 43, 53),
+(8, 'Lelaki', 152, 45, 55),
+(9, 'Lelaki', 155, 48, 59),
+(10, 'Lelaki', 157, 50, 61),
+(11, 'Lelaki', 160, 53, 65),
+(12, 'Lelaki', 162, 55, 68),
+(13, 'Lelaki', 165, 58, 70),
+(14, 'Lelaki', 167, 60, 74),
+(15, 'Lelaki', 170, 63, 76),
+(16, 'Lelaki', 172, 65, 80),
+(17, 'Lelaki', 175, 67, 83),
+(18, 'Lelaki', 177, 70, 85),
+(19, 'Lelaki', 180, 72, 89),
+(20, 'Perempuan', 135, 28, 35),
+(21, 'Perempuan', 137, 30, 37),
+(22, 'Perempuan', 140, 32, 40),
+(23, 'Perempuan', 142, 39, 42),
+(24, 'Perempuan', 145, 36, 45),
+(25, 'Perempuan', 147, 39, 47),
+(26, 'Perempuan', 150, 40, 50),
+(27, 'Perempuan', 152, 43, 52),
+(28, 'Perempuan', 155, 45, 55),
+(29, 'Perempuan', 157, 47, 57),
+(30, 'Perempuan', 160, 49, 60),
+(31, 'Perempuan', 162, 51, 62),
+(32, 'Perempuan', 165, 53, 65),
+(33, 'Perempuan', 167, 55, 67),
+(34, 'Perempuan', 170, 57, 70),
+(35, 'Perempuan', 172, 59, 72),
+(36, 'Perempuan', 175, 61, 75),
+(37, 'Perempuan', 177, 63, 77),
+(38, 'Perempuan', 180, 65, 80);
 
 -- --------------------------------------------------------
 
@@ -258,7 +371,6 @@ CREATE TABLE `tbl_inbody_result` (
   `inbodyId` int(11) NOT NULL,
   `patientId` int(11) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL,
   `weight` float NOT NULL,
   `BMI` float NOT NULL,
   `muscleMass` float NOT NULL,
@@ -269,10 +381,24 @@ CREATE TABLE `tbl_inbody_result` (
   `percentBodyFat` float NOT NULL,
   `waistHipRatio` float NOT NULL,
   `baseMetabolicRate` float NOT NULL,
-  `muscleControl` float NOT NULL,
-  `fatControl` float NOT NULL,
-  `fitnessScore` float NOT NULL
+  `muscleControl` varchar(15) NOT NULL,
+  `fatControl` varchar(15) NOT NULL,
+  `fitnessScore` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_inbody_result`
+--
+
+INSERT INTO `tbl_inbody_result` (`inbodyId`, `patientId`, `date`, `weight`, `BMI`, `muscleMass`, `bodyFatMass`, `FatFreeMass`, `protein`, `mineral`, `percentBodyFat`, `waistHipRatio`, `baseMetabolicRate`, `muscleControl`, `fatControl`, `fitnessScore`) VALUES
+(1, 10, '2017-11-02', 55, 22.89, 65, 25, 38.5, 35, 23, 20, 24, 30, '-45', '+10', '21% - 24% (Fitness)'),
+(2, 10, '2017-11-03', 62, 25.81, 49, 54, 38.5, 35, 23, 20, 24, 30, '+50', '+67', '18% - 24% (Average)'),
+(3, 10, '2017-11-03', 49, 20.4, 60, 25, 38.5, 35, 23, 20, 24, 30, '-40', '-20', '14% - 20% (Athletes)'),
+(5, 1, '2017-11-30', 55, 22.89, 0, 20, 0, 0, 0, 0, 24, 0, '00', '00', '21% - 24% (Fitness)'),
+(6, 1, '2017-11-30', 55, 22.89, 0, 20, 0, 0, 0, 0, 24, 0, '00', '00', '21% - 24% (Fitness)'),
+(7, 1, '2017-12-21', 88, 30.45, 0, 28, 0, 0, 0, 0, 30, 0, '00', '00', '25% - 31% (Average)'),
+(8, 40, '2017-12-21', 54, 25.68, 0, 12, 0, 0, 0, 0, 22, 0, '00', '00', '25% - 31% (Average)'),
+(10, 43, '2017-12-22', 80, 33.3, 0, 24, 0, 0, 0, 0, 40, 0, '00', '00', '32% and above (Obese)');
 
 -- --------------------------------------------------------
 
@@ -283,16 +409,20 @@ CREATE TABLE `tbl_inbody_result` (
 CREATE TABLE `tbl_medicine` (
   `medicineId` int(11) NOT NULL,
   `medicineName` varchar(255) NOT NULL,
-  `patientId` int(11) NOT NULL,
-  `duration` varchar(20) NOT NULL
+  `patientId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_medicine`
 --
 
-INSERT INTO `tbl_medicine` (`medicineId`, `medicineName`, `patientId`, `duration`) VALUES
-(1, 'ubat1', 35, '6 bulan');
+INSERT INTO `tbl_medicine` (`medicineId`, `medicineName`, `patientId`) VALUES
+(1, 'Propranolol 40MG', 1),
+(2, 'Carbimazole 5MG', 1),
+(3, 'Doa', 2),
+(4, 'paracetemol', 1),
+(6, 'Doa', 43),
+(7, 'Panadol ActiveFast', 43);
 
 -- --------------------------------------------------------
 
@@ -317,15 +447,14 @@ CREATE TABLE `tbl_nso` (
 --
 
 INSERT INTO `tbl_nso` (`nsoId`, `username`, `name`, `gender`, `address`, `icNo`, `telNo`, `password`, `email`) VALUES
-(1, '', 'user', 'Perempuan', 'sas', '950619115637', '97856745', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
+(1, 'nso100', 'Fatin', 'Perempuan', 'Kajang', '950619115637', '97856745', '123', 'adala@gmail.com'),
 (2, '', 'user', 'Lelaki', 'sas', '950619115637', '97856745', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
-(3, '', 'user', 'Lelaki', 'sas', '950619115637', '97856745', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (4, '', 'user', 'Perempuan', 'sas', '950619115637', '97856745', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (5, '', 'user', 'Perempuan', 'sas', '950619115637', '97856745', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
-(6, '', 'user', 'Perempuan', 'sas', '950619115637', '97856745', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (7, '', 'user', 'Perempuan', 'sas', '950619115637', '97856745', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (8, '', 'Ahmad', 'Lelaki', 'dsewrwe', '980312085028', '2147483647', '202cb962ac59075b964b07152d234b70', 'test@gmail.com'),
 (9, '', 'hadi', 'Lelaki', 'dcs', '950619115637', '234', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
+(10, '', 'azadddd', 'Lelaki', 'sad', '950619115368', '148295569', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (11, '', 'azazazm', 'Lelaki', 'asdd', '950619115368', '13222', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (13, '', 'azazazm', 'Lelaki', 'sdfsc', '950619115368', '148295569', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (14, 'staff1', 'Siti Hairani binti Harun', 'Perempuan', 'dsewrwe', '980312085028', '2147483647', '202cb962ac59075b964b07152d234b70', 'a158034@siswa.ukm.edu.my'),
@@ -339,8 +468,12 @@ INSERT INTO `tbl_nso` (`nsoId`, `username`, `name`, `gender`, `address`, `icNo`,
 (23, 'staff8', 'aza', 'Lelaki', 'fgd', '950619115368', '0148295569', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (25, 'staff8', 'aza', 'Lelaki', 'fgd', '950619115368', '0148295569', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (26, 'staff8', 'aza', 'Lelaki', 'fgd', '950619115368', '0148295569', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
+(27, 'staff7', 'dddddd', 'Lelaki', 'sda', '950619115368', '0148295569', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
 (28, 'admin1', 'sd', 'Lelaki', 'asd', '950619115368', '0148295569', '202cb962ac59075b964b07152d234b70', 'a@gmail.com'),
-(29, 'admin1', 'ds', 'Lelaki', 'brf', '950619115368', '0148295569', '202cb962ac59075b964b07152d234b70', 'a@gmail.com');
+(30, 'yusna1', 'Yusna', 'Female', 'Kajang', '941120111111', '0172767126', 'yusna1', 'yusnamarlina@gmail.com'),
+(31, 'hello1', 'Yusna', 'Female', 'No 495', '941120111111', '0172767126', 'hello1', 'yusnamarlina@gmail.com'),
+(42, 'staff15', 'Test Lagi', 'Perempuan', 'No 495', '941120111111', '0123456789', '6886cd2ce3a59781a0de62584847448f', 'yusnamarlina@gmail.com'),
+(43, 'abu123', 'Abu', 'Lelaki', 'Taman Abu', '941120111111', '0123456789', '09d0714edbfe6a5be5f51a8d706cefb6', 'abu@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -366,27 +499,34 @@ CREATE TABLE `tbl_patient` (
   `status` varchar(20) NOT NULL,
   `telNo` int(20) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `hipertensi` varchar(5) NOT NULL,
+  `kardiovaskular` varchar(5) NOT NULL,
+  `diabetes` varchar(5) NOT NULL,
+  `asma` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_patient`
 --
 
-INSERT INTO `tbl_patient` (`patientId`, `username`, `name`, `gender`, `dateOfBirth`, `icNo`, `address`, `city`, `state`, `poscode`, `race`, `religion`, `education`, `currentInfo`, `status`, `telNo`, `email`, `password`) VALUES
-(1, 'patient1', 'Dilla', 'Perempuan', '2017-10-12', '950619115368', 'sasd', 'sdasd', 'Negeri', 2425, 'Melayu', 'lain2', 'lain', 'bekerja/', 'Berkahwin', 423532, 'a@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(2, '', 'Bell', 'Perempuan', '2017-10-03', '950619115368', 'faf', 'fgfdg', 'Pahang', 3245, 'Melayu', 'Islam', 'UPSR', 'on', 'Bujang', 34241, 'a@gmail.com', 'vfgrdg'),
-(3, '', 'Sumairah', 'Perempuan', '2017-10-03', '950619115368', 'faf', 'fgfdg', 'Pahang', 3245, 'Melayu', 'Islam', 'UPSR', 'Tidak bekerja', 'Bujang', 34241, 'a@gmail.com', 'dfdg'),
-(4, '', 'Assi', 'Perempuan', '2017-10-03', '950619115368', 'faf', 'fgfdg', 'Pahang', 3245, 'Melayu', 'Islam', 'UPSR', 'on', 'Bujang', 34241, 'a@gmail.com', 'fsg'),
-(10, 'patient6', 'Aslam', 'Lelaki', '2017-10-17', '950619115368', 'jkjh', 'jkhjm', 'Pulau Pinang', 65765, 'Melayu', 'llll', 'lain', 'belajar/', 'Bujang', 7, 'a@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(27, 'staff1', 'as', 'Lelaki', '2017-10-12', '950619115368', 'sfas', 'asfasf', 'Pulau Pinang', 34324, 'Melayu', 'Islam', 'sfdsf', 'sdas', 'Bujang', 148295569, 'a@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(28, 'staff1', 'as', 'Lelaki', '2017-10-12', '950619115368', 'sfas', 'asfasf', 'Pulau Pinang', 34324, 'Melayu', 'Islam', 'sfdsf', 'sdas', 'Bujang', 148295569, 'a@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(30, 'staff1', 'as', 'Lelaki', '2017-10-12', '950619115368', 'sfas', 'asfasf', 'Pulau Pinang', 34324, 'Melayu', 'Islam', 'sfdsf', 'sdas', 'Bujang', 148295569, 'a@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(31, 'staff1', 'as', 'Lelaki', '2017-10-12', '950619115368', 'sfas', 'asfasf', 'Pulau Pinang', 34324, 'Melayu', 'Islam', 'sfdsf', 'sdas', 'Bujang', 148295569, 'a@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(32, 'staff1', 'sdas', 'Lelaki', '2017-10-24', '950619115368', 'gfdgd', 'dfsd', 'Johor', 234234, 'Melayu', 'Buddha', 'PMR/PT3', 'ukm', 'Bercerai', 148295569, 'a@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(33, 'patient3', 'Aina Badrul Zaman', 'Perempuan', '2017-05-17', '940123457343', 'rawang', 'bandar', 'Selangor', 0, 'Melayu', 'Islam', 'Degree', 'belajar', 'Bujang', 12334678, 'aina@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(34, 'testPatient1', 'Paan', 'Lelaki', '2017-11-02', '930412235433', 'Blok G ke Blok H ke yang pasti KPZ', 'Johor Jaya', 'Johor', 10001, 'Melayu', 'Islam', 'UPSR', 'Tidak bekerja', 'Berkahwin', 14234557, 'paan@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(35, 'marlina1', 'Marlina', 'Perempuan', '1994-11-20', '941111111111', 'Taman prima saujana', 'Kajang', 'Selangor', 43000, 'Melayu', 'Islam', 'Diploma', 'UKM', 'Bujang', 172767126, 'yusnamarlina@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
+INSERT INTO `tbl_patient` (`patientId`, `username`, `name`, `gender`, `dateOfBirth`, `icNo`, `address`, `city`, `state`, `poscode`, `race`, `religion`, `education`, `currentInfo`, `status`, `telNo`, `email`, `password`, `hipertensi`, `kardiovaskular`, `diabetes`, `asma`) VALUES
+(1, 'patient1', 'Dilla', 'Perempuan', '1995-10-12', '950619115368', 'Kajang', 'sdasd', 'Pahang', 2425, 'Melayu', 'lain2', 'lain', 'bekerja', 'Berkahwin', 172767126, 'dilla@gmail.com', '202cb962ac59075b964b07152d234b70', 'Ya', 'Ya', 'Tidak', 'Tidak'),
+(2, '', 'Bell', 'Perempuan', '1995-10-03', '950619115368', 'faf', 'fgfdg', 'Pahang', 3245, 'Melayu', 'Islam', 'UPSR', 'on', 'Bujang', 34241, 'a@gmail.com', 'vfgrdg', 'Ya', 'Tidak', 'Ya', 'Tidak'),
+(3, '', 'Sumairah', 'Perempuan', '1995-10-03', '950619115368', 'Taman Mutiara', 'fgfdg', 'Pahang', 3245, 'Melayu', 'Islam', 'UPSR', 'Tidak bekerja', 'Bujang', 1123456789, 'sumairah@gmail.com', 'dfdg', '', '', '', ''),
+(4, 'patient4', 'MUHAMMAD SYAZZANY BIN SHUHAIMI', 'Lelaki', '1996-11-01', '961111111111', 'Kuala Lumpur', '-', 'Selangor', 43000, 'Malay', 'Islam', '', '', '', 11762712, 'test123@gmail.com', '', '', '', '', ''),
+(5, 'patient5', 'NURUL FARAH HANI BINTI ZAIMAL', 'Perempuan', '1997-01-01', '971213111111', 'kuantan', 'kuantan', 'Pahang', 0, 'Malay', '', '', '', '', 0, '', '', '', '', '', ''),
+(10, 'patient6', 'Aslam', 'Lelaki', '1995-10-17', '950619115368', 'jkjh', 'jkhjm', 'Pulau Pinang', 65765, 'Melayu', 'llll', 'lain', 'belajar', 'Bujang', 7, 'a@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '', ''),
+(33, 'patient3', 'Aina Badrul Zaman', 'Perempuan', '1994-05-17', '940123457343', 'rawang', 'bandar', 'Selangor', 0, 'Melayu', 'Islam', 'Degree', 'belajar', 'Bujang', 12334678, 'aina@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '', ''),
+(34, 'testPatient1', 'Paan', 'Lelaki', '1996-11-02', '930412235433', 'Blok G ke Blok H ke yang pasti KPZ', 'Johor Jaya', 'Johor', 10001, 'Melayu', 'Islam', 'UPSR', 'Tidak bekerja', 'Berkahwin', 14234557, 'paan@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '', ''),
+(35, 'staff23', 'awang', 'Lelaki', '2017-12-13', '950120145627', '31', 'bandar baru bangi', 'Perlis', 21300, 'Melayu', 'f', 'd', 'fs', 'Bujang', 122675896, 'a@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '', ''),
+(36, 'staff23', 'awang', 'Lelaki', '2017-12-13', '950120145627', '31', 'bandar baru bangi', 'Perlis', 21300, 'Melayu', 'f', 'd', 'fs', 'Bujang', 122675896, 'a@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '', ''),
+(37, 'staff23', 'awang', 'Lelaki', '2017-12-13', '950120145627', '31', 'bandar baru bangi', 'Perlis', 21300, 'Melayu', 'f', 'd', 'fs', 'Bujang', 122675896, 'a@gmail.com', '9f6e6800cfae7749eb6c486619254b9c', '', '', '', ''),
+(38, 'staff23', 'awang', 'Lelaki', '2017-12-13', '950120145627', '31', 'bandar baru bangi', 'Perlis', 21300, 'Melayu', 'f', 'd', 'fs', 'Bujang', 122675896, 'a@gmail.com', '0244e0b239de091515c2406440c5ad00', '', '', '', ''),
+(39, 'staff23', 'awang', 'Lelaki', '2017-12-13', '950120145627', '31', 'bandar baru bangi', 'Perlis', 21300, 'Melayu', 'f', 'd', 'fs', 'Bujang', 122675896, 'a@gmail.com', '4ec503be252d765ea37621a629afdaa6', '', '', '', ''),
+(40, 'patient20', 'Mariam', 'Perempuan', '1994-02-01', '940102111111', 'No.3', 'Jalan Bangi', 'Selangor', 43000, 'Melayu', 'Islam', 'Diploma', 'Freelancer', 'Berkahwin', 172767126, 'yusnamarlina@gmail.com', '202cb962ac59075b964b07152d234b70', 'Ya', 'Tidak', 'Ya', 'Ya'),
+(41, 'patient30', 'Yusna Marlina', 'Perempuan', '1994-11-20', '941111111112', 'Taman prima saujana', 'Kajang', 'Selangor', 43000, 'Melayu', 'Islam', 'Diploma', 'UKM', 'Bujang', 172767126, 'yusnamarlina@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '', ''),
+(43, 'patient31', 'Yusna M', 'Perempuan', '1994-11-20', '941111111111', 'Prima Saujana Kajang', 'Kajang', 'Melaka', 43000, 'Melayu', 'Islam', 'Diploma', 'UKM', 'Bujang', 172767127, 'babychoki2@rocketmail.com', '154d7a916865bc12b93fd4772e848a34', 'Tidak', 'Ya', 'Ya', 'Ya');
 
 -- --------------------------------------------------------
 
@@ -401,6 +541,17 @@ CREATE TABLE `tbl_treatment` (
   `date` date NOT NULL,
   `remarks` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_treatment`
+--
+
+INSERT INTO `tbl_treatment` (`treatmentId`, `patientId`, `nsoId`, `date`, `remarks`) VALUES
+(4, 1, 14, '2017-11-30', 'Perlu menjalani rawatan susulan pada tiga minggu akan datang'),
+(5, 1, 14, '2017-11-30', 'BMI semasa : 23.1 \r\n						                  perlu menjalani aktiviti fizikal berkala selama 2 bulan'),
+(6, 1, 14, '2017-11-30', 'Test'),
+(7, 1, 14, '2017-12-13', 'Berat menurun secara stabil'),
+(9, 43, 42, '2017-12-22', 'Perjumpaan pertama');
 
 --
 -- Indexes for dumped tables
@@ -463,6 +614,12 @@ ALTER TABLE `tbl_health_issue`
   ADD KEY `patientId` (`patientId`);
 
 --
+-- Indexes for table `tbl_ideal_weight`
+--
+ALTER TABLE `tbl_ideal_weight`
+  ADD PRIMARY KEY (`iw_id`);
+
+--
 -- Indexes for table `tbl_inbody_result`
 --
 ALTER TABLE `tbl_inbody_result`
@@ -492,9 +649,7 @@ ALTER TABLE `tbl_patient`
 -- Indexes for table `tbl_treatment`
 --
 ALTER TABLE `tbl_treatment`
-  ADD PRIMARY KEY (`treatmentId`),
-  ADD UNIQUE KEY `patientId` (`patientId`),
-  ADD KEY `nsoId` (`nsoId`);
+  ADD PRIMARY KEY (`treatmentId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -510,73 +665,79 @@ ALTER TABLE `tbl_activity`
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_anthro_data`
 --
 ALTER TABLE `tbl_anthro_data`
-  MODIFY `antroId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `antroId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_appointment`
 --
 ALTER TABLE `tbl_appointment`
-  MODIFY `appointmentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `appointmentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `tbl_daily_diet`
 --
 ALTER TABLE `tbl_daily_diet`
-  MODIFY `dailyDietId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `dailyDietId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_drink`
 --
 ALTER TABLE `tbl_drink`
-  MODIFY `drinkId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5005;
+  MODIFY `drinkId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5007;
 
 --
 -- AUTO_INCREMENT for table `tbl_food`
 --
 ALTER TABLE `tbl_food`
-  MODIFY `foodId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4005;
+  MODIFY `foodId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4010;
 
 --
 -- AUTO_INCREMENT for table `tbl_health_issue`
 --
 ALTER TABLE `tbl_health_issue`
-  MODIFY `healthIssueId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `healthIssueId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `tbl_ideal_weight`
+--
+ALTER TABLE `tbl_ideal_weight`
+  MODIFY `iw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tbl_inbody_result`
 --
 ALTER TABLE `tbl_inbody_result`
-  MODIFY `inbodyId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `inbodyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_medicine`
 --
 ALTER TABLE `tbl_medicine`
-  MODIFY `medicineId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `medicineId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_nso`
 --
 ALTER TABLE `tbl_nso`
-  MODIFY `nsoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `nsoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `tbl_patient`
 --
 ALTER TABLE `tbl_patient`
-  MODIFY `patientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `patientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `tbl_treatment`
 --
 ALTER TABLE `tbl_treatment`
-  MODIFY `treatmentId` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `treatmentId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -621,12 +782,6 @@ ALTER TABLE `tbl_inbody_result`
 --
 ALTER TABLE `tbl_medicine`
   ADD CONSTRAINT `tbl_medicine_ibfk_1` FOREIGN KEY (`patientId`) REFERENCES `tbl_patient` (`patientId`);
-
---
--- Constraints for table `tbl_treatment`
---
-ALTER TABLE `tbl_treatment`
-  ADD CONSTRAINT `tbl_treatment_ibfk_1` FOREIGN KEY (`nsoId`) REFERENCES `tbl_nso` (`nsoId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
